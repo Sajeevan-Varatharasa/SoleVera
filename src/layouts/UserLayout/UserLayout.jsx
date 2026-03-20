@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import "../../styles/user/UserLayout.css";
 import {
@@ -12,48 +13,33 @@ import {
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const UserLayout = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleToggle = () => {
+    setMenuOpen(!menuOpen);
+  };
   return (
     <div className="layout-container">
-      <header className="header">
-        <nav className="navbar container">
-          <a href="#" className="navbar__logo">
-            Solevera
-          </a>
+       <header className="header">
+ <nav className="navbar container">
+  <a href="#" className="navbar__logo">Solevera</a>
 
-          <ul className="navbar__menu" id="navMenu">
-            <li>
-              <a href="index.html" className="active">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="pages/service.html">Category</a>
-            </li>
-            <li>
-              <a href="pages/about.html">About Us</a>
-            </li>
-            <li>
-              <a href="pages/contact.html">Contact</a>
-            </li>
-          </ul>
+<ul className={`navbar__menu ${menuOpen ? "open" : ""}`}>
+  <li><a href="index.html" className="active">Home</a></li>
+  <li><a href="pages/service.html">Category</a></li>
+  <li><a href="pages/about.html">About Us</a></li>
+  <li><a href="pages/contact.html">Contact</a></li>
+</ul>
 
-          <button className="navbar__toggle" id="navToggle">
-            ☰
-          </button>
+  <div className="icon-set">
+    <a href="/cart"><ShoppingCartIcon className="icon" /></a>
+    <a href="/profile"><UserIcon className="icon" /></a>
+    <a href="/favorites"><HeartIcon className="icon" /></a>
+  </div>
 
-          <div className="icon-set">
-            <a href="/cart">
-              <ShoppingCartIcon className="icon" />
-            </a>
-            <a href="/profile">
-              <UserIcon className="icon" />
-            </a>
-            <a href="/favorites">
-              <HeartIcon className="icon" />
-            </a>
-          </div>
-        </nav>
-      </header>
+  <button className="navbar__toggle" onClick={handleToggle}>☰</button>
+</nav>
+    </header>
 
       <main className="layout-main">
         <Outlet />
@@ -65,7 +51,7 @@ const UserLayout = () => {
             <h3>Join the Future</h3>
             <p>Subscribe for exclusive drops and 10% off your first order</p>
           </div>
-          <div className="subscrive-field">
+          <div className="subscribe-field">
             <input
               type="text"
               placeholder="Enter Your Email"
@@ -102,7 +88,8 @@ const UserLayout = () => {
                 </div>
               </div>
             </div>
-            <div className="shop-section">
+          <div className="right-section">
+              <div className="shop-section">
               <h4>Shop</h4>
               <a href="">New Arrivals</a>
               <a href="">Best Sellers</a>
@@ -124,7 +111,8 @@ const UserLayout = () => {
               <a href="">Careers</a>
               <a href="">Press</a>
               <a href="">Sustainablity</a>
-            </div>
+            </div> 
+          </div>
           </div>
           <div className="privacy-section">
             <div className="privacy">
