@@ -45,6 +45,16 @@
   transform: translateX(-50%);
 }
 
+.icon-set-hide{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  display: none;
+
+}
+.icon-set-hide li a{
+  text-decoration: none;
+}
 .navbar__menu li a {
   text-decoration: none;
   color: var(--color-dark-text);
@@ -365,6 +375,12 @@
   .icon-set {
     justify-content: center;
     margin-top: 10px;
+    display: none;
+  }
+  .icon-set-hide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 .navbar__menu a:hover,

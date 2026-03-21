@@ -1,27 +1,30 @@
-import React from "react";
-import "../../styles/user/home.css"
-
+import { Link } from "react-router-dom";
+import { ShoppingCartIcon, UserIcon } from "../../components/common/icons";
+import shoe from "../../assets/image/orangeshoe.png";
+import "../../styles/user/Home.css";
 const Home = () => {
   return (
-    <div className="home-container">
-      <header className="home-header">
-        <h1>Welcome to SoleVera</h1>
-        <p>Step intos style with our premium footwear collection</p>
-      </header>
+      <div className="banner">
+        <div className="banner-text">
+<h1 class="banner-text">
+  Get More comfortable without <span class="highlight">Brands</span>
+</h1>          <p>
+            Discover the latest styles and must-have essentials. Fast shipping,
+            easy returns, and secure checkoutshop now and find something you’ll
+            love. Discover the latest styles and must-have essentials.Fast
+            shipping, easy returns, and secure checkout — shop now and find
+            something you’ll love.
+          </p>
+          <Link to="/cart" className="shop-button">
+            <ShoppingCartIcon className="icon" />
+            <span>Shop now</span>
+          </Link>
+        </div>
+        <div className="banner-image">
+            <img src={shoe} alt="" />
 
-      <main className="home-main">
-        <button className="shop-button">Shop Now</button>
-        <img
-          src="/shoes-hero.png"
-          alt="Stylish Shoes"
-          className="hero-image"
-        />
-      </main>
-
-      <footer className="home-footer">
-        © 2026 SoleVera. All rights reserved.
-      </footer>
-    </div>
+        </div>
+      </div>
   );
 };
 
